@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".culture_list">
+
+    <FrameLayout
+        android:layout_width="322dp"
+        android:layout_height="120dp"
+        android:background="@drawable/gallery_"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="289dp"></FrameLayout>
+
+    <FrameLayout
+        android:layout_width="322dp"
+        android:layout_height="120dp"
+        android:background="@drawable/play_"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="413dp"></FrameLayout>
+
+    <FrameLayout
+        android:layout_width="322dp"
+        android:layout_height="120dp"
+        android:background="@drawable/festival_"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="41dp">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="322dp"
+        android:layout_height="120dp"
+        android:background="@drawable/musical_"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="165dp">
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="323dp"
+        android:layout_height="120dp"
+        android:background="#80000000"
+        android:gravity="center"
+        android:text="연극"
+        android:textColor="@color/colorWhite"
+        android:textSize="25dp"
+        android:typeface="serif"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="323dp"
+        android:layout_height="120dp"
+        android:background="#80000000"
+        android:gravity="center"
+        android:text="전시회"
+        android:textColor="@color/colorWhite"
+        android:textSize="25dp"
+        android:typeface="serif"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="323dp"
+        android:layout_height="120dp"
+        android:background="#80000000"
+        android:gravity="center"
+        android:text="축제"
+        android:textColor="@color/colorWhite"
+        android:textSize="25dp"
+        android:typeface="serif"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="323dp"
+        android:layout_height="120dp"
+        android:background="#80000000"
+        android:gravity="center"
+        android:text="뮤지컬"
+        android:textColor="@color/colorWhite"
+        android:textSize="25dp"
+        android:typeface="serif"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+
+</android.support.constraint.ConstraintLayout>
