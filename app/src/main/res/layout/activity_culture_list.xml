@@ -6,89 +6,165 @@
     android:layout_height="match_parent"
     tools:context=".culture_list">
 
-    <FrameLayout
-        android:layout_width="322dp"
-        android:layout_height="120dp"
-        android:background="@drawable/gallery_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="289dp"></FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="322dp"
-        android:layout_height="120dp"
-        android:background="@drawable/play_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="413dp"></FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="322dp"
-        android:layout_height="120dp"
-        android:background="@drawable/festival_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="41dp">
+            <FrameLayout
+                android:id="@+id/frameLayout4"
+                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/musical_"
+                app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12">
 
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="Musical"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25dp"
+                    android:typeface="serif"
+                    app:layout_constraintBottom_toTopOf="@+id/textView10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="322dp"
-        android:layout_height="120dp"
-        android:background="@drawable/musical_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="165dp">
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_height="170dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/festival_"
+                app:layout_constraintBottom_toTopOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="Festival"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25dp"
+                    android:typeface="serif"
+                    app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="323dp"
-        android:layout_height="120dp"
-        android:background="#80000000"
-        android:gravity="center"
-        android:text="연극"
-        android:textColor="@color/colorWhite"
-        android:textSize="25dp"
-        android:typeface="serif"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="413dp" />
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_height="170dp"
+                android:background="@drawable/play_"
+                app:layout_constraintBottom_toBottomOf="@id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView11">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="323dp"
-        android:layout_height="120dp"
-        android:background="#80000000"
-        android:gravity="center"
-        android:text="전시회"
-        android:textColor="@color/colorWhite"
-        android:textSize="25dp"
-        android:typeface="serif"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="289dp" />
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="Play"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="323dp"
-        android:layout_height="120dp"
-        android:background="#80000000"
-        android:gravity="center"
-        android:text="축제"
-        android:textColor="@color/colorWhite"
-        android:textSize="25dp"
-        android:typeface="serif"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="41dp" />
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="170dp"
+                android:background="@drawable/gallery_"
+                app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView10">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="323dp"
-        android:layout_height="120dp"
-        android:background="#80000000"
-        android:gravity="center"
-        android:text="뮤지컬"
-        android:textColor="@color/colorWhite"
-        android:textSize="25dp"
-        android:typeface="serif"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="165dp" />
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="Gallery"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25dp"
+                    android:typeface="serif"
+                    app:layout_constraintBottom_toTopOf="@+id/textView11"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/frameLayout5"
+                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="170dp"
+                android:background="@drawable/etc_"
+                app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView10">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="etc."
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25dp"
+                    android:typeface="serif"
+                    app:layout_constraintBottom_toTopOf="@+id/textView11"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
 
 </android.support.constraint.ConstraintLayout>

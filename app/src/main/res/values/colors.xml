@@ -13,4 +13,8 @@
     <color name="colorDeepBlue">#B7C0DC</color>
     <color name="colorMint">#096cbe</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorDeepYellow">#ffb300</color>
+    <color name="colorLightGreen">#00bfa5</color>
+    <color name="colorDeepPurple">#7c4cff</color>
+    <color name="colorBlueLight">#05c3f9</color>
 </resources>

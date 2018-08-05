@@ -4,74 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSoftBlue"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="115dp"
-        app:srcCompat="@drawable/seoul"
-        android:scaleType="fitXY"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="151dp" />
-
-    <TableLayout
-        android:layout_width="384dp"
-        android:layout_height="341dp"
-        android:background="@color/colorBlue"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="251dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/eating"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="300dp" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/map"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="416dp" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/band"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="416dp" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/bed"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="300dp" />
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="351dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
