@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
     DatabaseReference mConditionRef = mDatabase.child("Restaurant").child("aaa");
 
     TextView textView;
-
+    System.out.println("test");
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
