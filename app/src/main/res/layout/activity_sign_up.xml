@@ -5,126 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".sign_up">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:text="추가 정보 입력"
+            android:textStyle="bold"
+            />
 
 
-    <FrameLayout
-        android:layout_width="355dp"
-        android:layout_height="502dp"
-        android:background="@color/colorGray"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="30dp"></FrameLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_border"
+            >
 
-    <FrameLayout
-        android:layout_width="294dp"
-        android:layout_height="444dp"
-        android:background="@color/colorWhite"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="57dp"></FrameLayout>
+            <TableRow
+                android:layout_margin="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이름(닉네임)"
+                    />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="171dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="127dp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="중복 확인"
+                    />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="260dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="283dp" />
+            </TableRow>
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="260dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="215dp" />
+            <TableRow
+                android:layout_margin="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="휴대폰 번호"
+                    />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    />
 
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            </TableRow>
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="261dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="phone"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="371dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="121dp"
-        android:layout_height="27dp"
-        android:text="휴대폰 번호"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="329dp" />
+        </TableLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="88dp"
-        android:layout_height="27dp"
-        android:text="비밀번호 확인"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="253dp" />
+        <Button
+            android:layout_margin="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="완료"
+            />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="88dp"
-        android:layout_height="27dp"
-        android:text="비밀번호"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="173dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="66dp"
-        android:layout_height="27dp"
-        android:text="아이디"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="92dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="75dp"
-        android:layout_height="30dp"
-        android:background="@drawable/button_border"
-        android:text="중복확인"
-        android:textColor="@color/colorBlueGray"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="124dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button_border"
-        android:text="sign up"
-        android:textColor="@color/colorBlueGray"
-        android:textSize="17dp"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="414dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

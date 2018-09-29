@@ -4,40 +4,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".etc_list">
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_height="200dp"
+    tools:context=".food_list">
+    <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsingtoolbar"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:contentScrim="@color/colorDeepYellow"
-            app:title="Food"
-            app:expandedTitleMarginStart="50dp"
-            app:expandedTitleMarginEnd="60dp"
-            android:background="@drawable/food">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:layout_marginLeft="10dp"
+                        android:text="RESTAURANT"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorDeepYellow"
+                        android:textSize="28dp" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@id/toolbar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin"
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+
+                    <Spinner
+                        android:id="@+id/txt_question_type"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:backgroundTint="#7a7a7a"
+                        android:gravity="bottom" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:id="@+id/refresh"
+                        android:layout_height="18dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/reload"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerInside"
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical">
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="75dp"></android.support.v7.widget.Toolbar>
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+                <SearchView
+                    android:id="@+id/search"
+                    android:layout_height="25dp"
+                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:progressTint="@color/colorWhite"
+                    android:queryHint="리스트 검색"
+                    android:theme="@style/EditTheme_new" />
 
-    </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                <Switch
+                    android:id="@+id/single"
+                    android:layout_width="wrap_content"
+                    android:textColor="#7A7A7A"
+                    android:layout_height="wrap_content"
+                    android:width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:checked="false"
+                    android:text="1인 식당" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
 
-        <!-- list -->
-    </android.support.v4.widget.NestedScrollView>
+                    <TextView
+                        android:id="@+id/textView_header1"
+                        android:textColor="#7A7A7A"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="TITLE" />
+
+                    <TextView
+                        android:id="@+id/textView_header2"
+                        android:textColor="#7A7A7A"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="CATEGORY" />
+
+                    <TextView
+                        android:id="@+id/textView_header3"
+                        android:textColor="#7A7A7A"
+                        android:layout_width="0dp"
+                        android:layout_weight="6"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="ADDRESS" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_below="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLightGray"
+                    />
+
+
+                <ListView
+                    android:layout_margin="10dp"
+                    android:id="@+id/listview_f"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="#F7F7F7"
+                    android:layout_below="@+id/header">
+
+                </ListView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 
 </android.support.design.widget.CoordinatorLayout>

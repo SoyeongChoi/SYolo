@@ -1,58 +1,61 @@
 package com.example.hyeminj.syolo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TableRow;
 
-public class culture_list extends AppCompatActivity {
+
+public class culture_list extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_culture_list);
 
-        ViewGroup musical = (ViewGroup)findViewById(R.id.frameLayout4);
-        musical.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),musical_list.class);
-                startActivity(intent);
-            }
-        });
-        ViewGroup festival = (ViewGroup)findViewById(R.id.frameLayout3);
-        festival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),festival_list.class);
-                startActivity(intent);
-            }
-        });
-        ViewGroup play = (ViewGroup)findViewById(R.id.frameLayout2);
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),play_list.class);
-                startActivity(intent);
-            }
-        });
-        ViewGroup gallery = (ViewGroup)findViewById(R.id.frameLayout);
-        gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),gallery_list.class);
-                startActivity(intent);
-            }
-        });
-        ViewGroup etc = (ViewGroup)findViewById(R.id.frameLayout5);
-        etc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),etc_list.class);
-                startActivity(intent);
-            }
-        });
+        TableRow musical = (TableRow) findViewById(R.id.musical_frame);
+        TableRow festival = (TableRow) findViewById(R.id.festival_frame);
+        TableRow play = (TableRow) findViewById(R.id.play_frame);
+        TableRow gallery = (TableRow) findViewById(R.id.gallery_frame);
+        TableRow etc = (TableRow) findViewById(R.id.etc_frame);
 
+        musical.setOnClickListener(this);
+        festival.setOnClickListener(this);
+        play.setOnClickListener(this);
+        gallery.setOnClickListener(this);
+        etc.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i;
+
+        switch (v.getId()) {
+            case R.id.musical_frame :
+                i = new Intent(this, musical_list.class);
+                startActivity(i);
+                break;
+            case R.id.play_frame :
+                i = new Intent(this, play_list.class);
+                startActivity(i);
+                break;
+            case R.id.festival_frame :
+                i = new Intent(this, festival_list.class);
+                startActivity(i);
+                break;
+            case R.id.gallery_frame :
+                i = new Intent(this, gallery_list.class);
+                startActivity(i);
+                break;
+            case R.id.etc_frame :
+                i = new Intent(this, etc_list.class);
+                startActivity(i);
+                break;
+            default:
+                break;
+        }
     }
 }

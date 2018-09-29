@@ -5,60 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".item">
-
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
+        android:layout_height="wrap_content">
+        <com.dd.ShadowLayout
+            android:background="@drawable/list_border"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="158dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/band" />
-
-        </TableRow>
-
-        <TableRow
+            android:layout_height="wrap_content"
+            app:sl_cornerRadius="3dp"
+            app:sl_shadowRadius="5dp"
+            app:sl_shadowColor="#aaaaaaaa"
+            app:sl_dx="0dp"
+            app:sl_dy="0dp"
+            >
+        <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editText6"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView_title"
+                android:layout_width="0dp"
+                android:layout_weight="4.5"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-        </TableRow>
+                android:layout_margin="5dp"
+                android:text="TextView" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            <TextView
+                android:id="@+id/textView_start"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:text="TextView" />
 
-            <EditText
-                android:id="@+id/editText3"
-                android:layout_width="200dp"
+            <TextView
+                android:id="@+id/textView_end"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView_place"
+                android:layout_width="0dp"
+                android:layout_weight="4"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-        </TableRow>
+                android:layout_margin="5dp"
+                android:text="TextView" />
+        </LinearLayout>
+        </com.dd.ShadowLayout>
+    </LinearLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
 
-            <EditText
-                android:id="@+id/editText7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-        </TableRow>
-    </TableLayout>
 </android.support.constraint.ConstraintLayout>

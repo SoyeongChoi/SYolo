@@ -1,41 +1,80 @@
 package com.example.hyeminj.syolo;
 
-import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+public class MainActivity extends AppCompatActivity  /*implements View.OnClickListener*/{
 
-public class MainActivity extends Activity {
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mConditionRef = mDatabase.child("Restaurant").child("aaa");
+    private BottomNavigationView mMainNav;
+    private RelativeLayout mMainFrame;
+    private ProgressDialog nDialog;
+    private HomeFragment homeFragment;
+    private LikeFragment likeFragment;
+    private SafetyFragment safetyFragment;
+    private MoreFragment moreFragment;
 
-    TextView textView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView)findViewById(R.id.textView);
-    }
+        mMainFrame = (RelativeLayout) findViewById(R.id.main_frame);
+        mMainNav = (BottomNavigationView) findViewById(R.id.main_nav);
 
-    protected void onStart(){
-        super.onStart();
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.main_nav);
+        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
 
-        mConditionRef.addValueEventListener(new ValueEventListener() {
+        homeFragment = new HomeFragment();
+        likeFragment = new LikeFragment();
+        safetyFragment = new SafetyFragment();
+        moreFragment = new MoreFragment();
+
+        setFragment(homeFragment);
+
+        mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView.setText(name);
-            }
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch ((item.getItemId())) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    case R.id.nav_home:
+
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
+                        setFragment(homeFragment);
+                        return true;
+
+                    case R.id.nav_like:
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
+                        setFragment(likeFragment);
+                        return true;
+
+                    case R.id.nav_safety:
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
+                        setFragment(safetyFragment);
+                        return true;
+
+                    case R.id.nav_more:
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
+                        setFragment(moreFragment);
+                        return true;
+
+                    default:
+                        return false;
+                }
             }
         });
+    }
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_frame, fragment);
+        fragmentTransaction.commit();
     }
 }
