@@ -72,7 +72,7 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
     ArrayList<review_item> list_itemArrayList;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    String addr = null;
+    String addr;
     int i=0;
     long review_size;
 
@@ -158,27 +158,52 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
         type = intent.getStringExtra("type");
 
         addr = place;
-        title_.setText(title);
-        date.setText(start+" ~ "+end);
-        place_.setText(place);
+        if(!title.equals("\n")){
+
+            title_.setText(title);
+        }
+        if(!date.equals("\n")) {
+
+            date.setText(start+" ~ "+end);
+        }
+        if(!place.equals("\n")) {
+            place_.setText(place);
+        }
 
         try {
-            time_.setText(removeTag(time));
+            if(!time.equals("\n")) {
+                time_.setText(removeTag(time));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
-            quiry_.setText(removeTag(quiry));
+            if(!quiry.equals("\n")) {
+
+                quiry_.setText(removeTag(quiry));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(!link.equals("\n")) {
 
-        link_.setText(link);
-        target_.setText(target);
-        fee_.setText(fee);
+            link_.setText(link);
+        }
+
+        if(!target.equals("\n")) {
+
+            target_.setText(target);
+        }
+        if(!fee.equals("\n")) {
+
+            fee_.setText(fee);
+        }
 
         try {
-            content.setText(removeTag(program));
+            if(!program.equals("\n")) {
+
+                content.setText(removeTag(program));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -217,17 +242,7 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
         review_list.setAdapter(adapter);
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mConditionRef;
-        if(!addr.equals("\n")){
-            mConditionRef = mDatabase.child("review").child(type).child(addr);
-        }else{
-            String temp = title.replaceAll("\\.","");
-            temp = temp.replaceAll("\\#","");
-            temp = temp.replaceAll("$","");
-            temp = temp.replaceAll("\\[","");
-            temp = temp.replaceAll("\\]","");
-            mConditionRef = mDatabase.child("review").child(type).child(temp);
-        }
+        DatabaseReference mConditionRef = mDatabase.child("review").child(type).child(addr);
 
         mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -242,7 +257,7 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
                     String type = snapshot.child("type").getValue(String.class);
                     String id = snapshot.child("ID").getValue(String.class);
                     String lg_type = snapshot.child("login_type").getValue(String.class);
-                    if(p!=null){
+                    if(p!=null&&p.equals(title)){
                         Collections.reverse(list_itemArrayList);
                         list_itemArrayList.add(new review_item(name,content,time,Float.parseFloat(rating),type,addr,id,lg_type));
                         Collections.reverse(list_itemArrayList);
@@ -386,26 +401,15 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
                 Date date = new Date(now);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String time = sdf.format(date);
-                DatabaseReference push;
-                if(!addr.equals("\n")){
-                    push = databaseReference.child("review").child(type).child(addr).push();
-                }else{
-                    // '.', '#', '$', '[', or ']'
-                    String temp = title.replaceAll("\\.","");
-                    temp = temp.replaceAll("\\#","");
-                    temp = temp.replaceAll("$","");
-                    temp = temp.replaceAll("\\[","");
-                    temp = temp.replaceAll("\\]","");
-                    push = databaseReference.child("review").child(type).child(temp).push();
-                }
+                DatabaseReference push = databaseReference.child("review").child(type).child(addr).push();
                 push.child("name").setValue(name);
-                push.child("ID").setValue(ID);
-                push.child("login_type").setValue(loginType);
                 push.child("content").setValue(content);
                 push.child("rating").setValue(rating);
                 push.child("date").setValue(time);
                 push.child("title").setValue(title);
                 push.child("type").setValue(type);
+                push.child("ID").setValue(ID);
+                push.child("login_type").setValue(loginType);
                 DatabaseReference myreview = databaseReference.child("member").child(loginType).child(ID).child("review").child(type).child(addr).child(push.getKey());
                 myreview.child("name").setValue(name);
                 myreview.child("content").setValue(content);
@@ -424,5 +428,3 @@ public class detail extends AppCompatActivity implements View.OnClickListener {
         review_count.setText(ssb);
     }
 }
-
-

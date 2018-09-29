@@ -137,17 +137,7 @@ public class lodge_detail extends AppCompatActivity implements OnMapReadyCallbac
         name=pref.getString("name","");
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mConditionRef;
-        if(!addr.equals("\n")){
-            mConditionRef = mDatabase.child("review").child("Lodge").child(addr);
-        }else{
-            String temp = title.replaceAll("\\.","");
-            temp = temp.replaceAll("\\#","");
-            temp = temp.replaceAll("$","");
-            temp = temp.replaceAll("\\[","");
-            temp = temp.replaceAll("\\]","");
-            mConditionRef = mDatabase.child("review").child("Lodge").child(temp);
-        }
+        final DatabaseReference mConditionRef = mDatabase.child("review").child("Lodge").child(addr);
 
         mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -161,7 +151,7 @@ public class lodge_detail extends AppCompatActivity implements OnMapReadyCallbac
                     String p = snapshot.child("addr").getValue(String.class);
                     String id = snapshot.child("ID").getValue(String.class);
                     String lg_type = snapshot.child("login_type").getValue(String.class);
-                    if(p!=null){
+                    if(p!=null&&p.equals(addr)){
                         Collections.reverse(list_itemArrayList);
                         list_itemArrayList.add(new review_item(name,content,time,Float.parseFloat(rating),"Lodge",addr,id,lg_type));
                         Collections.reverse(list_itemArrayList);
@@ -219,18 +209,27 @@ public class lodge_detail extends AppCompatActivity implements OnMapReadyCallbac
         FragmentManager fragmentManager = getFragmentManager();
         MapFragment mapFragment = (MapFragment)fragmentManager.findFragmentById(R.id.map_place);
         mapFragment.getMapAsync(this);
+        if(!title.equals("\n")) {
 
-        lodge_name.setText(title);
-        lodge_address.setText("위치: "+addr);
+            lodge_name.setText(title);
+        }
+        if(!addr.equals("\n")){
+            lodge_address.setText("위치: "+addr);
+        }
 
         try {
-            lodge_type.setText(removeTag(type));
+            if(!type.equals("\n")) {
+                lodge_type.setText(removeTag(type));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            lodge_tel.setText(removeTag(tel));
+            if(!tel.equals("\n")){
+
+                lodge_tel.setText(removeTag(tel));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -321,25 +320,15 @@ public class lodge_detail extends AppCompatActivity implements OnMapReadyCallbac
                 Date date = new Date(now);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String time = sdf.format(date);
-                DatabaseReference push;
-                if(!addr.equals("\n")){
-                    push = databaseReference.child("review").child("Lodge").child(addr).push();
-                }else{
-                    // '.', '#', '$', '[', or ']'
-                    String temp = title.replaceAll("\\.","");
-                    temp = temp.replaceAll("\\#","");
-                    temp = temp.replaceAll("$","");
-                    temp = temp.replaceAll("\\[","");
-                    temp = temp.replaceAll("\\]","");
-                    push = databaseReference.child("review").child("Lodge").child(temp).push();
-                }push.child("name").setValue(name);
-                push.child("ID").setValue(ID);
-                push.child("login_type").setValue(loginType);
+                DatabaseReference push = databaseReference.child("review").child("Lodge").child(addr).push();
+                push.child("name").setValue(name);
                 push.child("content").setValue(content);
                 push.child("rating").setValue(rating);
                 push.child("date").setValue(time);
-                push.child("addr").setValue(addr);
                 push.child("type").setValue("Lodge");
+                push.child("ID").setValue(ID);
+                push.child("addr").setValue(addr);
+                push.child("login_type").setValue(loginType);
                 DatabaseReference myreview = databaseReference.child("member").child(loginType).child(ID).child("review").child("Lodge").child(addr).child(push.getKey());
                 myreview.child("name").setValue(name);
                 myreview.child("content").setValue(content);

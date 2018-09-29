@@ -127,7 +127,6 @@
                             android:layout_margin="10dp"
                             android:linksClickable="true"
                             android:text="정보 없음"
-                            android:textSize="15dp"
                             android:autoLink="web"/>
                     </LinearLayout>
                     <LinearLayout

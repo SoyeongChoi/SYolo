@@ -140,6 +140,25 @@ public class food_detail extends AppCompatActivity implements OnMapReadyCallback
         mapy = temp.get("mapy");
         addr =temp.get("address");
         category =temp.get("category");
+        if(title==null){
+            title = "정보 없음";
+        }if(road_addr==null){
+            road_addr = "정보 없음";
+        }if(link==null){
+            link = "정보 없음";
+        }if(dscrp==null){
+            dscrp = "정보 없음";
+        }if(tel==null){
+            tel = "정보 없음";
+        }if(mapx==null){
+            mapx = "정보 없음";
+        }if(mapy==null){
+            mapy = "정보 없음";
+        }if(addr==null){
+            addr = "정보 없음";
+        }if(category==null){
+            category = "정보 없음";
+        }
   //      Toast.makeText(
   //              getApplicationContext(),
   //              title+" "+road_addr+" "+link+" "+dscrp+" "+tel+" "+mapx+" "+mapy+" "+addr+" "+category,
@@ -149,29 +168,31 @@ public class food_detail extends AppCompatActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         try {
+            if(title!=null&& !title.equals("")){
             placeTitle.setText(removeTag(title));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         address.setText(addr);
-        if(dscrp!=null){
+        if(dscrp!=null&& !dscrp.equals("")){
         try {
             description.setText(removeTag(dscrp));
         } catch (Exception e) {
             e.printStackTrace();
         }
         }
-        if(link!= null){
+        if(link!= null && !link.equals("")){
         placeLink.setText(link);
         }
-        if(category!=null){
+        if(category!=null&& !category.equals("")){
         placeCategory.setText(category);
         }
-        if(road_addr != null){
+        if(road_addr != null && !road_addr.equals("")){
 
         roadAddress.setText(road_addr);
         }
-        if(telephone != null){
+        if(telephone != null&& !telephone.equals("")){
         telephone.setText(tel);
         }
 
