@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getHas();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         context = this;
@@ -139,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 editor.putString("name", object.get("name").toString());
                                                 editor.putString("id", object.get("id").toString());
                                                 editor.putString("url", String.valueOf(url_face));
-                                                editor.putString("email",response.getJSONObject().getString("email").toString());
+                                                //editor.putString("email",response.getJSONObject().getString("email").toString());
 
                                                 final String id = pref.getString("id","");
                                                 final String name = pref.getString("name","");
@@ -209,6 +210,20 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         setNaver();
+    }
+    private void getHas() {
+        try {
+            PackageInfo Info = getPackageManager().getPackageInfo(this.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : Info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.e("MY KEY HASH", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
     }
    private void redirectLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
