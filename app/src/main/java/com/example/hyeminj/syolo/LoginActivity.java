@@ -142,8 +142,8 @@ public class LoginActivity extends AppCompatActivity {
                                                 editor.putString("url", String.valueOf(url_face));
                                                 //editor.putString("email",response.getJSONObject().getString("email").toString());
 
-                                                final String id = pref.getString("id","");
-                                                final String name = pref.getString("name","");
+                                                final String id = pref.getString("id", object.get("id").toString());
+                                                final String name = pref.getString("name",object.get("name").toString());
                                                 final boolean[] check = new boolean[1];
                                                 check[0]=false;
 
@@ -153,9 +153,11 @@ public class LoginActivity extends AppCompatActivity {
                                                     public void onDataChange(DataSnapshot dataSnapshot) {
 
                                                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                                            if (snapshot.child("id").getValue(String.class).equals(id)) {
+
+                                                            if (snapshot.getChildren()!=null &&snapshot.child("id").getValue(String.class).equals(id)) {
                                                                 check[0] = true;
                                                             }
+
                                                         }
                                                         if (check[0] != true) {
                                                             databaseReference.child("member").child("facebook").child(id).child("id").setValue(id); //
