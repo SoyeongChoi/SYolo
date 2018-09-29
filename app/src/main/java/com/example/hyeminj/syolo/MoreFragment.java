@@ -180,10 +180,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setType("plain/text");
                 // email setting 배열로 해놔서 복수 발송 가능
-                String[] address = {"em@address.com"};
+                String[] address = {"wlalsdns@gmail.com","201602084@cs-cnu.org","201602090@cs-cnu.org"};
                 email.putExtra(Intent.EXTRA_EMAIL, address);
-                email.putExtra(Intent.EXTRA_SUBJECT,"보내질 email 제목");
-                email.putExtra(Intent.EXTRA_TEXT,"보낼 email 내용을 미리 적어 놓을 수 있습니다.\n");
+                email.putExtra(Intent.EXTRA_SUBJECT,"[SYOLO 문의]");
                 startActivity(email);
                 break;
             case R.id.FaQ:

@@ -332,7 +332,11 @@ public class SafetyFragment extends Fragment implements OnMapReadyCallback{
 
         this.mGoogleMap = googleMap;
         isPermission = true;
-
+        //    private double latitude = 37.56;
+        //    private double longitude = 126.97;
+        LatLng PLACE = new LatLng(37.56,126.97);
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(PLACE));
+        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
         geocoder = new Geocoder(rootView.getContext());
         if(check){
             geocoder = new Geocoder(getActivity());
@@ -347,7 +351,7 @@ public class SafetyFragment extends Fragment implements OnMapReadyCallback{
             Address address = addressList.get(0);
             double latitude = address.getLatitude();
             double longitude = address.getLongitude();
-            LatLng PLACE = new LatLng(latitude,longitude);
+           PLACE = new LatLng(latitude,longitude);
 
             String name = point_name.get(list_position);
             latitude = address.getLatitude();
